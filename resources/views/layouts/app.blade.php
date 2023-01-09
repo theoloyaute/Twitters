@@ -72,7 +72,7 @@
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                height: 10em;
+                height: 7em;
                 text-align: center;
             }
 

@@ -43,6 +43,32 @@ class MainController extends Controller
         return redirect('/');
     }
 
+    public function edit($id){
+        $tweet = Tweet::find($id);
+
+        if ($tweet->user_id == Auth::id()){
+            return view('tweet', [
+                'tweet' => $tweet
+            ]);
+        }
+
+        return redirect('/');
+    }
+
+    public function update($id){
+        request()->validate([
+            'message' => 'required',
+        ]);
+
+        if (Tweet::find($id)->user_id == Auth::id()){
+            Tweet::where('id', $id)->update([
+                'message' => request('message'),
+            ]);
+        }
+
+        return redirect('/');
+    }
+
     public function delete($id){
         $tweet = Tweet::find($id);
 

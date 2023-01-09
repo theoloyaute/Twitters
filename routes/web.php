@@ -19,7 +19,11 @@ Route::get('/', [MainController::class, 'index'])->name('tweets');
 
 Route::post('/tweets/create', [MainController::class, 'store'])->name('tweets.store');
 
-Route::any('/tweets/{id}', [MainController::class, 'delete'])->name('tweets.delete');
+Route::get('/tweets/{id}', [MainController::class, 'edit'])->name('tweets.edit');
+
+Route::patch('/tweets/update/{id}', [MainController::class, 'update'])->name('tweets.update');
+
+Route::any('/tweets/delete/{id}', [MainController::class, 'delete'])->name('tweets.delete');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -11,13 +11,18 @@
                 <p class="lead">{{ $tweet->message }}</p>
             </div>
             <div class="d-flex justify-content-between">
+                <form action="{{ route('tweets.edit', ['id' => $tweet->id]) }}" method="GET">
+                    @csrf
+
+                    <button type="submit">Mettre à jour</button>
+
+                </form>
                 <form action="{{ route('tweets.delete', ['id' => $tweet->id]) }}" method="POST">
-                @csrf
+                    @csrf
 
-                @method('DELETE')
+                    @method('DELETE')
 
-                <button type="submit">Supprimer</button>
-
+                    <button type="submit">Supprimer</button>
                 </form>
             </div>
         </main>
