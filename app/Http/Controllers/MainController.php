@@ -45,7 +45,10 @@ class MainController extends Controller
 
     public function delete($id){
         $tweet = Tweet::find($id);
-        $tweet->delete();
+
+        if ($tweet->user_id == Auth::id()){
+            $tweet->delete();
+        }
 
         return redirect('/');
     }
