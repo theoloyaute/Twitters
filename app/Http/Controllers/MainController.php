@@ -7,16 +7,41 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
+    public function home(){
+        return view('home');
+    }
+
     public function index(){
         $tweets = Tweet:: all();
-        dd($tweets);
 
         return view('tweets', [
             'tweets' => $tweets
         ]);
     }
 
-    // public function home(){
-    //     return view('home');
-    // }
+    public function register(){
+
+        return view('register');
+    }
+
+
+
+    public function store(Request $request){
+        // $tweet = new Tweet();
+        // $tweet->title = $request->title;
+        // $tweet->message = $request->message;
+        // $tweet->user_id = 1;
+        // $tweet->save();
+
+        Tweet::create([
+            'message' => $request->message,
+            'user_id' => 1,
+        ]);
+
+        return redirect('/');
+    }
+
+    public function update(Request $request, $id){
+        dd(id);
+    }
 }

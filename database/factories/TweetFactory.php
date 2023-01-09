@@ -17,7 +17,8 @@ class TweetFactory extends Factory
     public function definition()
     {
         return [
-            'message' => $this->faker->paragraph,
+            'message' => fake()->paragraph,
+            'user_id' => 1,
             'created_at'=> now(),
         ];
     }
