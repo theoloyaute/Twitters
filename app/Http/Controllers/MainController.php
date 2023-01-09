@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Tweet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class MainController extends Controller
 {
@@ -12,7 +14,7 @@ class MainController extends Controller
     }
 
     public function index(){
-        $tweets = Tweet:: all();
+        $tweets = Tweet::with('user')->get();
 
         return view('tweets', [
             'tweets' => $tweets
@@ -32,11 +34,10 @@ class MainController extends Controller
         // $tweet->message = $request->message;
         // $tweet->user_id = 1;
         // $tweet->save();
-        dd($request);
 
         Tweet::create([
             'message' => $request->message,
-            'user_id' => 1,
+            'user_id' => Auth::id(),
         ]);
 
         return redirect('/');

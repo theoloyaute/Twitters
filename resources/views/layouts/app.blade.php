@@ -97,6 +97,10 @@
                 margin-bottom: 1em;
             }
 
+            .log {
+                justify-content: center;
+            }
+
         </style>
 
         <!-- Scripts -->

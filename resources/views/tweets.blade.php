@@ -6,7 +6,7 @@
 
     @foreach($tweets as $tweet)
         <main class="px-3 div-content">
-            <p class="text-start pseudo">pseudo</p>
+            <p class="text-start pseudo">{{ $tweet->user->name }}</p>
             <div class="b-example-divider message">
                 <p class="lead">{{ $tweet->message }}</p>
             </div>

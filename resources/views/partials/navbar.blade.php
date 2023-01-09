@@ -82,7 +82,7 @@
                         </div>
                     </nav>
                     @else
-                    <div class="d-flex center">
+                    <div class="d-flex log">
                         <a href="{{ route('login') }}">Log in</a>
 
                         <p>/</p>
