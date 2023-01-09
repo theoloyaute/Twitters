@@ -42,7 +42,10 @@ class MainController extends Controller
         return redirect('/');
     }
 
-    public function update(Request $request, $id){
-        dd(id);
+    public function delete($id){
+        $tweet = Tweet::find($id);
+        $tweet->delete();
+
+        return redirect('/');
     }
 }

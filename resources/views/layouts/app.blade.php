@@ -74,11 +74,15 @@
                 width: 100%;
                 height: 10em;
                 text-align: center;
-                background-color: #111;
+            }
+
+            .div-content {
+                margin-bottom: 0.5em;
             }
 
             .div-foot {
                 height: 100%;
+                background-color: #111;
             }
 
             .div-foot form {
@@ -103,16 +107,13 @@
     <body class="d-flex h-100 text-center text-bg-dark">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
             <main class="px-3">
+
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         @include('layouts.navigation')
                     @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
+                        @include('partials.navbar')
                     @endauth
                 </div>
             @endif

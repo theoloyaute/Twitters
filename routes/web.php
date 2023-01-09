@@ -19,6 +19,8 @@ Route::get('/', [MainController::class, 'index'])->name('tweets');
 
 Route::post('/tweets/create', [MainController::class, 'store'])->name('tweets.store');
 
+Route::any('/tweets/{id}', [MainController::class, 'delete'])->name('tweets.delete');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
