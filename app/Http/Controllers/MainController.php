@@ -32,6 +32,7 @@ class MainController extends Controller
         // $tweet->message = $request->message;
         // $tweet->user_id = 1;
         // $tweet->save();
+        dd($request);
 
         Tweet::create([
             'message' => $request->message,
