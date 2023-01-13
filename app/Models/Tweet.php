@@ -12,9 +12,14 @@ class Tweet extends Model
     protected $fillable = [
         'message',
         'user_id',
+        'tweet_id',
     ];
 
     public function user(){
         return $this->belongsTo(User::class)->select(['id', 'name']);
+    }
+
+    public function childs($id){
+        return Tweet::where('tweet_id', $id)->get();
     }
 }

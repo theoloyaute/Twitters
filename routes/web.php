@@ -25,6 +25,8 @@ Route::patch('/tweets/update/{id}', [MainController::class, 'update'])->name('tw
 
 Route::any('/tweets/delete/{id}', [MainController::class, 'delete'])->name('tweets.delete');
 
+Route::get('/tweets/reply/{id}', [MainController::class, 'reply'])->name('tweets.reply');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

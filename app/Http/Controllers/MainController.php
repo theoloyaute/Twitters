@@ -35,10 +35,10 @@ class MainController extends Controller
         // $tweet->user_id = 1;
         // $tweet->save();
 
-        Tweet::create([
-            'message' => $request->message,
-            'user_id' => Auth::id(),
-        ]);
+            Tweet::create([
+                'message' => $request->message,
+                'user_id' => Auth::id(),
+            ]);
 
         return redirect('/');
     }
@@ -76,6 +76,16 @@ class MainController extends Controller
             $tweet->delete();
         }
 
+        return redirect('/');
+    }
+
+    public function reply(Request $request,$id){
+        Tweet::create([
+            'message' => $request->message,
+            'user_id' => Auth::id(),
+            'tweet_id' => $id
+        ]);
+        
         return redirect('/');
     }
 }

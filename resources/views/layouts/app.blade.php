@@ -68,6 +68,22 @@
                 border-color: #333;
             }
 
+            .message_Id {
+                width: 50%;
+                border: 2px solid;
+                border-radius: 10px;
+                border-color: #333;
+            }
+
+            .message_Id2 {
+                width: 50%;
+            }
+
+            .message_Id p {
+                font-size: 1em;
+                
+            }
+
             .fixed {
                 left: 0;
                 bottom: 0;
